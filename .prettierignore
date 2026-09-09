@@ -1,0 +1,19 @@
+# build output
+dist
+.astro
+.output
+.vercel
+.netlify
+
+# dependencies
+node_modules
+
+# generated
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# misc
+.DS_Store
+*.min.js
+*.min.css

@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  /* Font */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #0a0a0d;
+  --color-surface: #121216;
+  --color-surface-hover: #1a1a20;
+  --color-border: #2a2a31;
+
+  --color-foreground: #f5f4f2;
+  --color-muted: #a3a1ab;
+
+  --color-primary: #008ed6;
+  --color-primary-hover: #0071ab;
+  --color-primary-foreground: #ffffff;
+
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+
+  --container-page: 1280px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}

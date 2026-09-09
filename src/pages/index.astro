@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Hero from "../components/home/Hero.astro";
+import AboutIntro from "../components/home/AboutIntro.astro";
+import SuccessSupport from "../components/home/SuccessSupport.astro";
+import Outcomes from "../components/home/Outcomes.astro";
+---
+
+<BaseLayout title="Mardawa — Company Profile">
+  <main class="min-h-screen bg-[var(--color-background)]">
+    <Navbar />
+    <Hero />
+    <AboutIntro />
+    <SuccessSupport />
+    <Outcomes />
+
+    <section class="flex h-96 items-center justify-center">
+      <p class="text-[var(--color-muted)]">Section berikutnya menyusul 👇</p>
+    </section>
+  </main>
+</BaseLayout>

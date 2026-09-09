@@ -1,0 +1,56 @@
+---
+import Container from "../ui/Container.astro";
+import OutcomeCard from "../ui/OutcomeCard.astro";
+
+const outcomes = [
+  {
+    company: "Zerra Interactive",
+    description: "Memperluas jangkauan pasar lewat strategi peluncuran multibahasa.",
+    metrics: [],
+  },
+  {
+    company: "Boltframe Technologies",
+    description: "Meningkatkan engagement dan konversi pengguna lewat redesign dashboard AI.",
+    metrics: [
+      { value: "+50%", label: "Peningkatan Konversi" },
+      { value: "-35%", label: "Penurunan Bounce Rate" },
+    ],
+  },
+  {
+    company: "Edgebeam Creative",
+    description: "Merevitalisasi branding digital, mendorong loyalitas dan shareability pelanggan.",
+    metrics: [],
+  },
+];
+---
+
+<section class="bg-[var(--color-background)] py-24 lg:py-32">
+  <Container>
+    <!-- Eyebrow + heading -->
+    <div class="mx-auto max-w-2xl text-center">
+      <div class="mb-4 flex items-center justify-center gap-2 text-sm font-medium text-[var(--color-primary)]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l2.4 7.2H22l-6 4.4 2.4 7.2L12 16.4 5.6 20.8 8 13.6 2 9.2h7.6L12 2z" />
+        </svg>
+        <span>Hasil dan Pencapaian</span>
+      </div>
+
+      <h2 class="text-3xl font-bold leading-tight text-[var(--color-foreground)] sm:text-4xl">
+        Hasil yang berbicara dengan sendirinya
+      </h2>
+      <p class="mt-4 text-base text-[var(--color-muted)] sm:text-lg">
+        Kami fokus pada hasil nyata — dibangun melalui data, desain, dan inovasi.
+        Setiap proyek, setiap metrik, setiap milestone berarti.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        outcomes.map((item) => (
+          <OutcomeCard company={item.company} description={item.description} metrics={item.metrics} />
+        ))
+      }
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  muted?: boolean;
+}
+
+const { muted = false } = Astro.props;
+---
+
+<div class="flex items-center gap-3">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class={`h-4 w-4 flex-shrink-0 ${muted ? "text-[var(--color-muted)]" : "text-[var(--color-primary)]"}`}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+  <span class={`text-sm ${muted ? "text-[var(--color-muted)]" : "text-[var(--color-foreground)]"}`}>
+    <slot />
+  </span>
+</div>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  label?: string;
+  count?: number;
+}
+
+const { label = "Dipercaya oleh 160.000+ perusahaan dan klien", count = 5 } = Astro.props;
+const logos = Array.from({ length: count });
+---
+
+<div class="flex flex-col items-center gap-8">
+  <p class="text-sm text-[var(--color-muted)]">{label}</p>
+
+  <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+    {
+      logos.map((_, i) => (
+        <div class="h-6 w-24 rounded bg-gray-700 opacity-70" aria-label={`Logo klien ${i + 1}`} />
+      ))
+    }
+  </div>
+</div>

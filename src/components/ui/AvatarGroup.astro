@@ -1,0 +1,19 @@
+---
+interface Props {
+  count?: number;
+}
+
+const { count = 4 } = Astro.props;
+const avatars = Array.from({ length: count });
+---
+
+<div class="flex -space-x-3">
+  {
+    avatars.map((_, i) => (
+      <div
+        class="h-9 w-9 rounded-full border-2 border-[var(--color-background)] bg-[var(--color-surface-hover)]"
+        style={`z-index: ${count - i}`}
+      />
+    ))
+  }
+</div>
