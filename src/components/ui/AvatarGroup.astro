@@ -1,19 +1,22 @@
 ---
 interface Props {
-  count?: number;
+    images?: string[];
+    count?: number;
 }
 
-const { count = 4 } = Astro.props;
-const avatars = Array.from({ length: count });
+const { images = [], count = 4 } = Astro.props;
+
+const max = Math.min(count, 5);
+const slots = Array.from({ length: max }, (_, i) => images[i] ?? null);
 ---
 
 <div class="flex -space-x-3">
-  {
-    avatars.map((_, i) => (
-      <div
-        class="h-9 w-9 rounded-full border-2 border-[var(--color-background)] bg-[var(--color-surface-hover)]"
-        style={`z-index: ${count - i}`}
-      />
-    ))
-  }
+    {slots.map((src, i) => (
+        <div
+            class="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border-2 border-[var(--color-background)] bg-[var(--color-surface-hover)]"
+            style={`z-index: ${max - i}`}
+        >
+            {src && <img src={src} alt="" class="h-6 w-6 object-cover" loading="lazy" />}
+        </div>
+    ))}
 </div>
