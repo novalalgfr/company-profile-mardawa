@@ -1,22 +1,26 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/layout/Navbar.astro";
-import Hero from "../components/home/Hero.astro";
-import AboutIntro from "../components/home/AboutIntro.astro";
-import SuccessSupport from "../components/home/SuccessSupport.astro";
-import Outcomes from "../components/home/Outcomes.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Hero from '../components/home/Hero.astro';
+import AboutIntro from '../components/home/AboutIntro.astro';
+import SuccessSupport from '../components/home/SuccessSupport.astro';
+import Outcomes from '../components/home/Outcomes.astro';
+import FeaturedWork from '../components/home/FeaturedWork.astro';
+import Services from '../components/home/Services.astro';
 ---
 
 <BaseLayout title="Mardawa — Company Profile">
-  <main class="min-h-screen bg-[var(--color-background)]">
-    <Navbar />
-    <Hero />
-    <AboutIntro />
-    <SuccessSupport />
-    <Outcomes />
+    <main class="min-h-screen bg-[var(--color-background)]">
+        <Navbar />
+        <Hero />
+        <AboutIntro />
+        <SuccessSupport />
+        <Outcomes />
+        <FeaturedWork />
+        <Services />
 
-    <section class="flex h-96 items-center justify-center">
-      <p class="text-[var(--color-muted)]">Section berikutnya menyusul 👇</p>
-    </section>
-  </main>
+        <section class="flex h-96 items-center justify-center">
+            <p class="text-[var(--color-muted)]">Section berikutnya menyusul 👇</p>
+        </section>
+    </main>
 </BaseLayout>
