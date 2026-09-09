@@ -1,107 +1,103 @@
 ---
-import Container from "../ui/Container.astro";
-import Button from "../ui/Button.astro";
-import StatItem from "../ui/StatItem.astro";
-import AvatarGroup from "../ui/AvatarGroup.astro";
+import Container from '../ui/Container.astro';
+import StatItem from '../ui/StatItem.astro';
+import AvatarGroup from '../ui/AvatarGroup.astro';
+import { Sparkles } from 'lucide-astro';
 
 const stats = [
-  { value: "150+", label: "Proyek diluncurkan" },
-  { value: "12M+", label: "Dana klien terkelola" },
-  { value: "10x ROI", label: "Revamp UX/UI Produk" },
-  { value: "25K+", label: "Pengguna aktif terdampak" },
+    { value: '3+', label: 'Kota terlayani sistem PPDB' },
+    { value: '150+', label: 'Proyek diselesaikan' },
+    { value: '10+', label: 'Instansi & perusahaan mitra' },
+    { value: '25K+', label: 'Pengguna aktif terdampak' },
+];
+
+const clients = [
+    { src: '/logo-bogor.png', alt: 'Kota Bogor' },
+    { src: '/logo-cilegon.png', alt: 'Kota Cilegon' },
+    { src: '/logo-palembang.png', alt: 'Kota Palembang' },
 ];
 ---
 
-<section class="hero relative overflow-hidden bg-[var(--color-background)] pt-40 pb-24 lg:pt-52 lg:pb-32">
-  <div class="hero-aurora" aria-hidden="true">
-    <span class="blob blob-1"></span>
-    <span class="blob blob-2"></span>
-    <span class="blob blob-3"></span>
-  </div>
-
-  <Container class="flex flex-col items-center text-center">
-    <!-- Eyebrow -->
-    <div class="mb-6 flex items-center gap-2 text-sm text-[var(--color-muted)]">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[var(--color-primary)]" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2l2.4 7.2H22l-6 4.4 2.4 7.2L12 16.4 5.6 20.8 8 13.6 2 9.2h7.6L12 2z" />
-      </svg>
-      <span>Studio desain untuk brand, produk & tim teknologi | Berbasis Jakarta</span>
+<section class="hero relative overflow-hidden bg-[var(--color-background)] pt-32 pb-24 lg:pt-40 lg:pb-32">
+    <div class="hero-aurora" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
     </div>
 
-    <!-- Headline -->
-    <h1 class="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl z-10">
-      Membangun brand, produk, dan masa depan digital yang berdampak
-    </h1>
+    <Container class="flex flex-col items-center text-center">
+        <div class="mb-6 flex items-center gap-2 text-sm text-[var(--color-muted)]">
+            <Sparkles class="h-4 w-4 text-[var(--color-secondary)]" />
+            <span>Mitra teknologi untuk portal, sistem informasi, dan integrasi data</span>
+        </div>
 
-    <!-- Subheadline -->
-    <p class="mt-6 max-w-xl text-base text-[var(--color-muted)] sm:text-lg">
-      Kami berkolaborasi dengan tim visioner untuk membangun brand yang menonjol,
-      meluncurkan produk yang lebih cerdas, dan bertumbuh dengan tujuan yang jelas.
-    </p>
+        <h1 class="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl z-10">
+            Membangun brand, produk, dan masa depan digital yang berdampak
+        </h1>
 
-    <!-- CTA -->
-    <div class="mt-8">
-      <Button href="/contact-us">Jadwalkan Meeting</Button>
-    </div>
+        <p class="mt-6 max-w-xl text-base text-[var(--color-muted)] sm:text-lg">
+            Kami merancang dan membangun website, sistem informasi, serta aplikasi yang siap dipakai
+            sehari-hari, mulai dari portal publik hingga sistem manajemen internal.
+        </p>
 
-    <!-- Stats -->
-    <div class="mt-16 grid w-full max-w-3xl grid-cols-2 gap-8 sm:grid-cols-4">
-      {stats.map((stat) => <StatItem value={stat.value} label={stat.label} />)}
-    </div>
+        <div class="mt-16 grid w-full max-w-3xl grid-cols-2 gap-8 sm:grid-cols-4">
+            {stats.map((stat) => (
+                <StatItem value={stat.value} label={stat.label} />
+            ))}
+        </div>
 
-    <!-- Trust row -->
-    <div class="mt-12 flex items-center gap-3">
-      <AvatarGroup count={4} />
-      <span class="text-sm text-[var(--color-muted)]">
-        Dipercaya oleh 150+ tim berbasis teknologi.
-      </span>
-    </div>
-  </Container>
+        <div class="mt-12 flex items-center gap-3">
+            <AvatarGroup images={clients.map((c) => c.src)} count={clients.length} />
+            <span class="text-sm text-[var(--color-muted)]">
+                Dipercaya oleh instansi pemerintah dan perusahaan swasta.
+            </span>
+        </div>
+    </Container>
 </section>
 
 <style>
-  .hero-aurora {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
+    .hero-aurora {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
 
-  .blob {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(100px);
-  }
+    .blob {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(100px);
+    }
 
-  .blob-1 {
-    top: 40px;
-    left: 5%;
-    width: 420px;
-    height: 420px;
-    background: var(--color-primary);
-    opacity: 0.55;
-  }
+    .blob-1 {
+        top: 40px;
+        left: 5%;
+        width: 420px;
+        height: 420px;
+        background: var(--color-primary);
+        opacity: 0.55;
+    }
 
-  .blob-2 {
-    top: 0;
-    right: 10%;
-    width: 320px;
-    height: 320px;
-    background: #22d3ee;
-    opacity: 0.35;
-  }
+    .blob-2 {
+        top: 0;
+        right: 10%;
+        width: 320px;
+        height: 320px;
+        background: #22d3ee;
+        opacity: 0.35;
+    }
 
-  .blob-3 {
-    top: 260px;
-    left: 35%;
-    width: 360px;
-    height: 360px;
-    background: #6366f1;
-    opacity: 0.25;
-  }
+    .blob-3 {
+        top: 260px;
+        left: 35%;
+        width: 360px;
+        height: 360px;
+        background: #6366f1;
+        opacity: 0.25;
+    }
 
-  .hero > :global(.relative) {
-    z-index: 1;
-  }
+    .hero > :global(.relative) {
+        z-index: 1;
+    }
 </style>
